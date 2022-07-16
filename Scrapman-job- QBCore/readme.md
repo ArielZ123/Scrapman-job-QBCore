@@ -10,7 +10,7 @@ that using as a 'dealer'.
 
 Server side change: In Line 17 you can change the price of the scrap sell -> local addmoney = math.random(20, 50) -> please pay attention to change the numbers to (High or low amount) as your choice.
 
-DO NOT FORGET TO CONNECT THE SQL FILE TO YOUR DB!!!
+IMPORTANT -> QBCore - How to add items correctly: https://forum.cfx.re/t/tutorial-qbcore-how-to-add-items-correctly/4860856
 
 To sum up things: I recommend you to give it a try and read about me in my github profile -> https://github.com/ArielZ123
 If you need anything feel free to ask me.
