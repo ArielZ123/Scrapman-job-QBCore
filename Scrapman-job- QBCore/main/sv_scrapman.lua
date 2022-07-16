@@ -3,14 +3,14 @@ local QBCore = exports['qb-core']:GetCoreObject()
 RegisterServerEvent('scrapjob:scrap:find')
 AddEventHandler('scrapjob:scrap:find', function()
    local _source = source
-   local xPlayer = QBCore.Functions.GetPlayer(source)
+   local xPlayer = QBCore.Functions.GetPlayer(_source)
    xPlayer.Functions.AddItem('scrap', 1)
 end)
 
 RegisterServerEvent('scrapjob:scrap:sell')
 AddEventHandler('scrapjob:scrap:sell', function()
    local _source = source
-   local xPlayer = QBCore.Functions.GetPlayer(source)
+   local xPlayer = QBCore.Functions.GetPlayer(_source)
    local scrapQuantity = xPlayer.Functions.GetItemByName('scrap')
    local addmoney = math.random(250, 500) -- change here the price of the scrap sell
    if type(scrapQuantity) == 'table' then 
