@@ -173,7 +173,7 @@ function LoadDict(dict)
 end
 
 function scrapmantext(x, y, z, text)
-    local onScreen, _x, _y = World3dToScreen2d(x, y, z+ 0.9)
+    local onScreen, _x, _y = World3dToScreen2d(x, y, z)
     local p = GetGameplayCamCoords()
     local distance = GetDistanceBetweenCoords(p.x, p.y, p.z, x, y, z, 1)
     local scale = (1 / distance) * 2
