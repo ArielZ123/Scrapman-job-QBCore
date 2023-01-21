@@ -1,5 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local InJob = false
+local WhileSearcing = false
 local scrap_type = nil
 
 ------------------------
@@ -37,6 +38,7 @@ Citizen.CreateThread(function()
                  if IsControlJustPressed(0,38) then
                     scrap()
                     InJob = true
+		    WhileSearcing = true
                  end
               end
            end
@@ -69,9 +71,8 @@ Citizen.CreateThread(function()
 end)
 
 Citizen.CreateThread(function()
-     while true do
-     local ped = PlayerPedId()
-       if IsEntityPlayingAnim(ped, "anim@gangops@facility@servers@bodysearch@", "player_search", 3) then
+    while true do
+       if WhileSearcing == true then
           DisableControlAction(0, 24, true)
           DisableControlAction(0, 257, true)
           DisableControlAction(0, 263, true)
@@ -137,6 +138,7 @@ function scrap()
                impacts = 0
                TriggerServerEvent('scrapjob:scrap:find')
                exports.pNotify:SendNotification({text = "you found some scrap type, go ahead to sell this scrap to the dealer nearby", type = "success", timeout = 8000, layout = "centerRight", queue = "right"})
+	       WhileSearcing = false
                break
             end
         end
